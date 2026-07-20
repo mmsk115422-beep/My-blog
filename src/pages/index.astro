@@ -1,0 +1,26 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>💰 家計簿＋へようこそ</h1>
+			<p>
+				家計管理や節約のコツ、お金にまつわる気づきをゆるく綴っていくブログです。
+			</p>
+			<p>
+				<a href="/blog">記事一覧</a>から更新をチェックしてください。
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
