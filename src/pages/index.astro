@@ -3,23 +3,52 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import heroImage from '../assets/hero-piggybank.png';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style define:vars={{ heroUrl: `url(${heroImage.src})` }}>
+			.hero {
+				background-image:
+					linear-gradient(to right, rgba(255, 255, 255, 0.92) 30%, rgba(255, 255, 255, 0.2) 75%),
+					var(--heroUrl);
+				background-size: cover;
+				background-position: center;
+				border-radius: 20px;
+				box-shadow: var(--box-shadow);
+				padding: 3.5em 2.5em;
+			}
+			.hero h1 {
+				margin-top: 0;
+			}
+			.hero p {
+				max-width: 32em;
+			}
+			@media (max-width: 720px) {
+				.hero {
+					background-image:
+						linear-gradient(to bottom, rgba(255, 255, 255, 0.92) 45%, rgba(255, 255, 255, 0.35) 100%),
+						var(--heroUrl);
+					padding: 2em 1.5em;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>💰 家計簿＋へようこそ</h1>
-			<p>
-				家計管理や節約のコツ、お金にまつわる気づきをゆるく綴っていくブログです。
-			</p>
-			<p>
-				<a href="/blog">記事一覧</a>から更新をチェックしてください。
-			</p>
+			<section class="hero">
+				<h1>💰 家計簿＋へようこそ</h1>
+				<p>
+					家計管理や節約のコツ、お金にまつわる気づきをゆるく綴っていくブログです。
+				</p>
+				<p>
+					<a href="/blog">記事一覧</a>から更新をチェックしてください。
+				</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
